@@ -1,0 +1,10 @@
+# Exclude the node_modules
+node_modules/
+
+# Exclude elastic beanstalk
+.elasticbeanstalk/
+
+# Exclude docker specific files
+.dockerignore
+Dockerfile
+Dockerrun.aws.json
