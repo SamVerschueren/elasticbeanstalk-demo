@@ -3,12 +3,8 @@ build:
   steps:
     - npm-install
 deploy:
-  box: ubuntu:trusty
+  box: anigeo/awscli
   steps:
-    - script:
-      name: Install Python & PIP
-      code: |-
-        apt-get install -y python py-pip
     - script:
       name: Install EB
       code: |-
