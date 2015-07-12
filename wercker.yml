@@ -9,8 +9,9 @@ deploy:
       name: Install Python & PIP
       code: |-
         apt-get install -y curl python2.7
+        python --version
         curl -O https://bootstrap.pypa.io/get-pip.py
-        python27 get-pip.py
+        python get-pip.py
     - script:
       name: Install EB
       code: |-
