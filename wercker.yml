@@ -5,12 +5,10 @@ build:
 deploy:
   box: phusion/baseimage
   steps:
-    - script:
-      name: ls
-      code: |-
-        ls -la
     - adminhengroen/deploy-to-ebs:
-      key-id: $AWS_ACCESS_KEY_ID
-      key-secret: $AWS_SECRET_KEY
+      key-id: $AWS_KEY
+      key-secret: $AWS_SECRET
       region: $AWS_REGION
       app-version: $WERCKER_GIT_COMMIT
+      app-name: eb-nodejs
+      env-name: eb-nodejs-dev
