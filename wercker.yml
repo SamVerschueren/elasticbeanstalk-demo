@@ -8,7 +8,7 @@ deploy:
     - script:
       name: Install Python & PIP
       code: |-
-        apt-get install -y python2.7
+        apt-get install -y curl python2.7
         curl -O https://bootstrap.pypa.io/get-pip.py
         python27 get-pip.py
     - script:
