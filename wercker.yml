@@ -2,4 +2,12 @@ box: nodesource/trusty
 build:
   steps:
     - npm-install
-    - npm-test
+deploy:
+  steps:
+    - mrono/elastic-beanstalk-deploy:
+      key: $AWS_KEY
+      secret: $AWS_SECRET
+      app_name: eb-nodejs
+      env_name: eb-nodejs-dev
+      region: $AWS_REGION
+      sc: git
