@@ -1,13 +1,16 @@
-box: nodesource/trusty
 build:
+  box: nodesource/trusty
   steps:
     - npm-install
 deploy:
+  box: phusion/baseimage
   steps:
-    - koding/eb-deploy:
-      access-key: $AWS_KEY
-      secret-key: $AWS_SECRET
-      app-name: eb-nodejs
-      env-name: eb-nodejs-dev
+    - script:
+      name: ls
+      code: |-
+        ls -la
+    - adminhengroen/deploy-to-ebs:
+      key-id: $AWS_ACCESS_KEY_ID
+      key-secret: $AWS_SECRET_KEY
       region: $AWS_REGION
-      version-label: $WERCKER_GIT_COMMIT
+      app-version: $WERCKER_GIT_COMMIT
