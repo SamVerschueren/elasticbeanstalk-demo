@@ -3,7 +3,7 @@ build:
   steps:
     - npm-install
 deploy:
-  box: ubuntu/trusty
+  box: ubuntu:trusty
   steps:
     - script:
       name: Install Python & PIP
