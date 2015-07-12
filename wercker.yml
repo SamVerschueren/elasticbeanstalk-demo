@@ -5,10 +5,10 @@ build:
 deploy:
   box: phusion/baseimage
   steps:
-    - adminhengroen/deploy-to-ebs:
-      key-id: $AWS_KEY
-      key-secret: $AWS_SECRET
+    - patrickwolleb/elastic-beanstalk-deploy:
+      key: $AWS_KEY
+      secret: $AWS_SECRET
       region: $AWS_REGION
-      app-version: $WERCKER_GIT_COMMIT
-      app-name: eb-nodejs
-      env-name: eb-nodejs-dev
+      app_name: eb-nodejs
+      env_name: eb-nodejs-dev
+      commit_message : $WERCKER_GIT_COMMIT
