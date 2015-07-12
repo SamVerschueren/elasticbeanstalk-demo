@@ -4,10 +4,10 @@ build:
     - npm-install
 deploy:
   steps:
-    - mrono/elastic-beanstalk-deploy:
-      key: $AWS_KEY
-      secret: $AWS_SECRET
-      app_name: eb-nodejs
-      env_name: eb-nodejs-dev
+    - koding/eb-deploy:
+      access-key: $AWS_KEY
+      secret-key: $AWS_SECRET
+      app-name: eb-nodejs
+      env-name: eb-nodejs-dev
       region: $AWS_REGION
-      sc: git
+      version-label: $WERCKER_GIT_COMMIT
