@@ -3,12 +3,16 @@ build:
   steps:
     - npm-install
 deploy:
-  box: yaronr/awscli
+  box: ubuntu/trusty
   steps:
-    - patrickwolleb/elastic-beanstalk-deploy:
-      key: $AWS_KEY
-      secret: $AWS_SECRET
-      region: $AWS_REGION
-      app_name: eb-nodejs
-      env_name: eb-nodejs-dev
-      commit_message : $WERCKER_GIT_COMMIT
+    - script:
+      name: Install Python & PIP
+      code: |-
+        apt-get install -y python2.7
+        curl -O https://bootstrap.pypa.io/get-pip.py
+        python27 get-pip.py
+    - script:
+      name: Install EB
+      code: |-
+        pip install awsebcli
+        eb --version
