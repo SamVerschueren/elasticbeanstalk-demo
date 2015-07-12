@@ -3,7 +3,7 @@ build:
   steps:
     - npm-install
 deploy:
-  box: phusion/baseimage
+  box: yaronr/awscli
   steps:
     - patrickwolleb/elastic-beanstalk-deploy:
       key: $AWS_KEY
